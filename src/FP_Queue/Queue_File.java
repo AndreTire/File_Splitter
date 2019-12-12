@@ -10,9 +10,43 @@ package FP_Queue;
  *
  */
 
+import java.util.LinkedList; 
+import java.util.Queue; 
+
 public class Queue_File {
 	// TODO Struttura della coda per i file
+	private Queue<Object> q;
 	
 	// TODO Interfaccia per l'accesso dei file in coda
+	
+	/**
+	 * Costruttore dell'oggetto coda per i file
+	 */
+	public Queue_File() {
+		q = new LinkedList<>();
+	}
+	
+	/**
+	 * Metodo che aggiunge un file in coda
+	 * @param e
+	 */
+	public void push(Object e) { q.add(e); }
+	
+	/**
+	 * Metodo che rimuove il primo file di posizione in coda
+	 * @return
+	 */
+	public Object pop() { return q.remove(); }
+	
+	/**
+	 * Metodo che ritorna il primo Object in coda, senza rimuoverlo
+	 * @return
+	 */
+	public Object statusQueue() { return q.peek(); }
 
+	/**
+	 * Metodoo che ritorna la grandezza della coda nello stato attuale
+	 * @return
+	 */
+	public int sizeQueue() { return q.size(); }
 }
