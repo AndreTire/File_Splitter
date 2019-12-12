@@ -1,3 +1,4 @@
 v. 0.1.0 *Progettazione* -> Definizione della struttura procedurale del progetto software da sviluppare
 v. 0.1.1 *Progettazione* -> Definizione dei TODO e dei JavaDoc per il package FP_Queue
 v. 1.0.1 *Sviluppo* -> Inizio dello sviluppo dei metodi per la struttura FP_Queue
+v. 1.0.2 *Svilyppo* -> Continuo dello svilyppo dei metodi per la struttura FP_Queue
