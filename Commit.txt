@@ -1,0 +1,1 @@
+v. 0.1.0 *Progettazione* -> Definizione della struttura procedurale del progetto software da sviluppare

@@ -1,0 +1,30 @@
+Coda per i file:
+	- Definire la struttura dati coda per i file:
+		- Struttura dati che salvi i file in coda;
+		- Interfaccia per l'utilizzo della struttura dati;
+	
+Divisione file:
+	- Creare un metodo che divida i file;
+	- Creare un metodo che cripti i file;
+	- Creare un metodo che comprima i file;
+	- Creare un metodo che attivi la funzione di divisione;
+	- Creare un metodo che attivi la funzione di divisione e criptazione;
+	- Creare un metodo che attivi la funzione di divisione e compressione;
+	 
+#----------------------------#
+
+Classi del software:
+
+- Queue
+	- Interfaccia
+- Divisione
+	- Dividi
+	- Cprypt
+	- Zip
+	- 
+- Composizione
+- GUI
+	- Frame
+	- Pannello
+	
+	
