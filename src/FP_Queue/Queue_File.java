@@ -3,10 +3,11 @@ package FP_Queue;
 /**
  * 
  * @author Tirelli Andrea
- * Classe che definisce la struttura dati Coda
- * La Coda definisce la struttura per lo store dei file selezionati dall'user
- * La Coda definisce l'interfaccia per il quale il software può accedere ai file in coda
- * La Coda definisce anche le regole per il quale i file vengono pushati e poppoati dalla coda 
+ * 
+ * Classe che definisce la struttura dati per salvare i file da processare
+ * La Coda definisce la struttura per lo store dei file da elaborare
+ * La Coda definisce l'interfaccia per accedere ai file nella struttura
+ * La Coda definisce le regole per accedere ai file nella struttura
  *
  */
 
@@ -16,16 +17,14 @@ import java.io.*;
 
 public class Queue_File {
 	/**
-	 * Struttura dati coda ti tipo File per salvare i file selezionati dall'utente in coda
+	 * Struttura dati coda di tipo File per salvare i file selezionati dall'utente
 	 */
 	private Queue<File> q;
 	
 	/**
 	 * Costruttore dell'oggetto coda per i file
 	 */
-	public Queue_File() {
-		q = new LinkedList<>();
-	}
+	public Queue_File() { q = new LinkedList<>(); }
 	
 	/**
 	 * Metodo che aggiunge un file in coda

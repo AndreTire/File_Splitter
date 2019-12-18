@@ -17,11 +17,10 @@ Classi del software:
 
 - Queue
 	- Interfaccia
-- Divisione
-	- Dividi
-	- Cprypt
+- Toolkit
+	- Split
+	- Crypt
 	- Zip
-	- 
 - Composizione
 - GUI
 	- Frame
