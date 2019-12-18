@@ -1,47 +1,62 @@
 package FP_Handling;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.RandomAccessFile;
+
 
 /**
  * 
  * @author Tirelli Andrea
- *
+ * Classe toolkit per lo split del file in processione nell'istante
  */
 
 public class Split {
+	// private String path;
+	
+	
 	/* TODO scegliere se optare per la queue che incoda i file o solo le string deti path dei file 
 	 * da aprire in un secondo momento nella funzione solo quando necessario */
-	public static void split(File f) throws Exception {
-		String path = f.getAbsolutePath();
+	
+	/**
+	 * Funzione per lo split del file selezionato (dalla coda o dall'utente)
+	 * @param path
+	 * @param namefile
+	 * @param num
+	 * @param buffer
+	 * @throws Exception
+	 */
+	public static void split(String path, String namefile, int num, int buffer) throws Exception {
+		File f = new File(path + "/" + namefile);
 		
-		// Apre il file corrente 
-        RandomAccessFile raf = new RandomAccessFile(f, "r");
+        RandomAccessFile raf = new RandomAccessFile(f, "r"); // Apre in readonly in file     
+        long numSplits = (long)num; // Numero di split per il file   
+        long sourceSize = raf.length(); // Dimensione in byte del file aperto
+        // System.out.println("Byte file size= " + sourceSize);
+           
+        long bytesPerSplit = sourceSize/numSplits ; // Numero di byte per ogni split richiesto
+        // System.out.println("Byte per slipt= " + bytesPerSplit);
         
-        // Numero di split per il file
-        long numSplits = 10; //from user input, extract it from args
-        
-        // Dimensione in byte del file aperto
-        long sourceSize = raf.length();
-        System.out.println("Byte file size= " + sourceSize);
-        
-        // Numero di byte per ogni split richiesto
-        long bytesPerSplit = sourceSize/numSplits ; 
-        System.out.println("Byte per slipt= " + bytesPerSplit);
-        
-        // Numero di byte rimanenti per l'ultimo split
-        long remainingBytes = sourceSize % numSplits;
-        System.out.println("Byte per last split= " + remainingBytes);
+        long remainingBytes = sourceSize % numSplits; // Numero di byte rimanenti per l'ultimo split
+        // System.out.println("Byte per last split= " + remainingBytes);
 
-        // Buffer di split di 8KB
-        int maxReadBufferSize = 8 * 1024; //8KB
+        int maxReadBufferSize = buffer * 1024; // Buffer di split
         
+        // Creazione della path dove saranno creati gli split
+        String splitPath = path + "/" + f.getName();
+        File p = new File(splitPath);
+        if(!p.exists())
+        	p.mkdir();
+        
+        // Processo per la creazione degli split
         for(int destIx=1; destIx <= numSplits; destIx++) {
-        	// TODO gestione della creazione della dir per salvare gli split
-            BufferedOutputStream bw = new BufferedOutputStream(new FileOutputStream(path + "/split."+destIx));
+            BufferedOutputStream bw = new BufferedOutputStream(new FileOutputStream(splitPath + "/split."+destIx));
             if(bytesPerSplit > maxReadBufferSize) {
                 long numReads = bytesPerSplit/maxReadBufferSize;
                 long numRemainingRead = bytesPerSplit % maxReadBufferSize;
@@ -57,13 +72,20 @@ public class Split {
             bw.close();
         }
         if(remainingBytes > 0) {
-            BufferedOutputStream bw = new BufferedOutputStream(new FileOutputStream(path + "split."+(numSplits+1)));
+            BufferedOutputStream bw = new BufferedOutputStream(new FileOutputStream(splitPath + "/split."+(numSplits+1)));
             readWrite(raf, bw, remainingBytes);
             bw.close();
         }
             raf.close();
     }
-
+	
+	/**
+	 * Funzione per la scrittura nei file splittati
+	 * @param raf
+	 * @param bw
+	 * @param numBytes
+	 * @throws IOException
+	 */
     static void readWrite(RandomAccessFile raf, BufferedOutputStream bw, long numBytes) throws IOException {
         byte[] buf = new byte[(int) numBytes];
         int val = raf.read(buf);
@@ -72,4 +94,43 @@ public class Split {
             bw.write(buf);
         }
     }
+    
+    /**
+     * Funzione per la ricomposizione del file originale
+     * @param FilePath
+     * @param namefile
+     */
+    public void join(String FilePath, String namefile) {
+	    long leninfile = 0, leng = 0;
+	    int count = 1, data = 0;
+	    try {
+	        File filename = new File(FilePath + "/" + namefile);
+	        // System.out.println("path= " + filename.getAbsolutePath());
+	        // RandomAccessFile outfile = new RandomAccessFile(filename,"rw");
+
+	        OutputStream outfile = new BufferedOutputStream(new FileOutputStream(filename));
+	        while (true) {
+	            filename = new File(FilePath + "/split." + count);
+	            // System.out.println("path= " + filename.getAbsolutePath() + "\nfilename= " + filename.getName());
+	            // System.out.println(filename.exists());
+	            if (filename.exists()) {
+	                // RandomAccessFile infile = new RandomAccessFile(filename,"r");
+	                InputStream infile = new BufferedInputStream(new FileInputStream(filename));
+	                data = infile.read();
+	                while (data != -1) {
+	                    outfile.write(data);
+	                    data = infile.read();
+	                }
+	                leng++;
+	                infile.close();
+	                count++;
+	            } else {
+	                break;
+	            }
+	        }
+	        outfile.close();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
 }

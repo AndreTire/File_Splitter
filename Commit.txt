@@ -4,3 +4,4 @@ v. 1.0.1 *Sviluppo* -> Inizio dello sviluppo dei metodi per la struttura FP_Queu
 v. 1.0.2 *Sviluppo* -> Continuo dello svilyppo dei metodi per la struttura FP_Queue
 v. 1.0.3 *Progettazione* -> Definizione del pacchetto per la gestione dei file presenti nel FP_Queue
 v. 1.0.4 *Sviluppo* -> Scritto il metodo per lo split dei file (gestita anche la casistica di file di grandi dimesioni) FP_Handling
+v. 1.0.5 *Sviluppo* -> Scritto il metodo per il join degli split per ricomporre il file originale FP_Handling
