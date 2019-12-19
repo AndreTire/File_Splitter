@@ -7,3 +7,4 @@ v. 1.0.4 *Sviluppo* -> Scritto il metodo per lo split dei file (gestita anche la
 v. 1.0.5 *Sviluppo* -> Scritto il metodo per il join degli split per ricomporre il file originale FP_Handling
 v. 1.0.6 *Sviluppo* -> Modificata la modalità di coda dei file (File -> String [path]). Modificato il tipo di Outfile del metodo join dello splitter FP_Handling
 v. 1.0.6 *Sviluppo* -> Aggiunto un output per il processo di split
+v. 1.0.7 *Sviluppo* -> Creato il file di demo per i testing delle procedure di queue e splitting
