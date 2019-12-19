@@ -49,6 +49,10 @@ public class Split {
 
         int maxReadBufferSize = buffer * 1024; // Buffer di split
         
+        System.out.println("File= " + f.getName() + "\nFile Descriptor= " + raf.getFD() + "\nSize= " + sourceSize + 
+        		"\nNumber of Split= " + numSplits + "Bytes per Split= " + bytesPerSplit +
+        		"\nRemaining Bytes= " + remainingBytes + "\nBuffer= " + maxReadBufferSize);
+        
         // Creazione della path dove saranno creati gli split
         String splitPath = path + "/" + f.getName();
         File p = new File(splitPath);
@@ -129,7 +133,10 @@ public class Split {
 	                break;
 	            }
 	        }
-	        outfile.close();
+	        System.out.println("File= " + filename.getName() + "\nFile Descriptor= " + outfile.getFD() + 
+	        		"\nFile Size= " + outfile.length() + "Path= " + filename.getAbsolutePath());
+	        
+	        outfile.close();	        
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
