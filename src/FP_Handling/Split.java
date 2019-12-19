@@ -35,6 +35,7 @@ public class Split {
 	public static void split(String path, String namefile, int num, int buffer) throws Exception {
 		File f = new File(path + "/" + namefile);
 		
+		// https://docs.oracle.com/javase/7/docs/api/java/io/RandomAccessFile.html
         RandomAccessFile raf = new RandomAccessFile(f, "r"); // Apre in readonly in file     
         long numSplits = (long)num; // Numero di split per il file   
         long sourceSize = raf.length(); // Dimensione in byte del file aperto
@@ -106,9 +107,9 @@ public class Split {
 	    try {
 	        File filename = new File(FilePath + "/" + namefile);
 	        // System.out.println("path= " + filename.getAbsolutePath());
-	        // RandomAccessFile outfile = new RandomAccessFile(filename,"rw");
+	        RandomAccessFile outfile = new RandomAccessFile(filename,"rw");
 
-	        OutputStream outfile = new BufferedOutputStream(new FileOutputStream(filename));
+	        // OutputStream outfile = new BufferedOutputStream(new FileOutputStream(filename));
 	        while (true) {
 	            filename = new File(FilePath + "/split." + count);
 	            // System.out.println("path= " + filename.getAbsolutePath() + "\nfilename= " + filename.getName());

@@ -5,3 +5,4 @@ v. 1.0.2 *Sviluppo* -> Continuo dello svilyppo dei metodi per la struttura FP_Qu
 v. 1.0.3 *Progettazione* -> Definizione del pacchetto per la gestione dei file presenti nel FP_Queue
 v. 1.0.4 *Sviluppo* -> Scritto il metodo per lo split dei file (gestita anche la casistica di file di grandi dimesioni) FP_Handling
 v. 1.0.5 *Sviluppo* -> Scritto il metodo per il join degli split per ricomporre il file originale FP_Handling
+v. 1.0.6 *Sviluppo* -> Modificata la modalità di coda dei file (File -> String [path]). Modificato il tipo di Outfile del metodo join dello splitter FP_Handling

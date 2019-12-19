@@ -9,6 +9,10 @@ package FP_Queue;
  * La Coda definisce l'interfaccia per accedere ai file nella struttura
  * La Coda definisce le regole per accedere ai file nella struttura
  *
+ * Si e deciso che la coda salverà solo i path dei file selezionati, in modo di avere
+ * una lettura e scrittura più veloce su di essa.
+ * 
+ * Gli oggetti File vengono istanziati singolarmente a tempo di esecuziones
  */
 
 import java.util.LinkedList; 
@@ -19,7 +23,7 @@ public class Queue_File {
 	/**
 	 * Struttura dati coda di tipo File per salvare i file selezionati dall'utente
 	 */
-	private Queue<File> q;
+	private Queue<String> q;
 	
 	/**
 	 * Costruttore dell'oggetto coda per i file
@@ -28,21 +32,21 @@ public class Queue_File {
 	
 	/**
 	 * Metodo che aggiunge un file in coda
-	 * @param e
+	 * @param f
 	 */
-	public void push(File f) { q.add(f); }
+	public void push(String f) { q.add(f); }
 	
 	/**
 	 * Metodo che rimuove il primo file di posizione in coda
 	 * @return
 	 */
-	public File pop() { return q.remove(); }
+	public String pop() { return q.remove(); }
 	
 	/**
 	 * Metodo che ritorna il primo Object in coda, senza rimuoverlo
 	 * @return
 	 */
-	public File statusQueue() { return q.peek(); }
+	public String statusQueue() { return q.peek(); }
 
 	/**
 	 * Metodoo che ritorna la grandezza della coda nello stato attuale
