@@ -27,3 +27,12 @@ Classi del software:
 	- Pannello
 	
 	
+#----------------------------#
+
+Sovrapposizioni delle funzioni di Split, Zip e Crypt
+
+Crypt() -> Zip() -> Slipt()
+
+Join() -> Decompress() -> Decrypt()
+	
+	

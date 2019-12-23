@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
+// import java.io.OutputStream;
 import java.io.RandomAccessFile;
 
 
@@ -106,7 +106,8 @@ public class Split {
      * @param namefile
      */
     public void join(String FilePath, String namefile) {
-	    long leninfile = 0, leng = 0;
+	    // long leninfile = 0;
+	    long leng = 0;
 	    int count = 1, data = 0;
 	    try {
 	        File filename = new File(FilePath + "/" + namefile);
