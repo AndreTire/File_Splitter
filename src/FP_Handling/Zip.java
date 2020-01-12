@@ -15,6 +15,12 @@ import java.util.zip.InflaterInputStream;
  */
 
 public class Zip {
+	/**
+	 * Metodo per la compressione del file
+	 * @param file
+	 * @param path
+	 * @throws IOException
+	 */
 	public static void compress(String file, String path) throws IOException  {
 		FileInputStream fin = new FileInputStream(path + "/" + file);
 		
@@ -29,6 +35,12 @@ public class Zip {
 		deflat.close();		
 	}
 	
+	/**
+	 * Metodo per la decompressione del file
+	 * @param file
+	 * @param path
+	 * @throws IOException
+	 */
 	public static void decompress(String file, String path) throws IOException {
 		FileInputStream fin = new FileInputStream(path + "/" + file);
 		InflaterInputStream zip = new InflaterInputStream(fin);
@@ -40,5 +52,19 @@ public class Zip {
 		
 		fot.close();
 		zip.close();
+	}
+	
+	public static void main(String[] args) {
+		String file = "";
+		String path = "";
+		
+		Zip z = new Zip();
+		
+		try {
+			z.compress(file, path);
+			z.decompress(file, path);
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

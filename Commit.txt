@@ -9,3 +9,4 @@ v. 1.0.6 *Sviluppo* -> Modificata la modalità di coda dei file (File -> String 
 v. 1.0.6 *Sviluppo* -> Aggiunto un output per il processo di split
 v. 1.0.7 *Sviluppo* -> Creato il file di demo per i testing delle procedure di queue e splitting
 v. 1.0.8 *Sviluppo* -> Create le funzioni per la classe zip per la compressione e decompressione dei file tramite la libreria java.util Deflate
+v. 1.0.9 *Sviluppo* -> Creato e testato il metodo per la codifica di un file con l'algoritmo AES

@@ -34,5 +34,10 @@ Sovrapposizioni delle funzioni di Split, Zip e Crypt
 Crypt() -> Zip() -> Slipt()
 
 Join() -> Decompress() -> Decrypt()
+
+Creare un unica coda compresa di percorso file ed estensione di esso
+Creare un metodo per fare un explode sulla stringa in coda in modo da ottenere le informazioni per i metodi split e zip
+
+Creare una funzione che divide in thread le varie operazioni sui file nel programma principale
 	
 	

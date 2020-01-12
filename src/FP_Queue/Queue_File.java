@@ -15,7 +15,8 @@ package FP_Queue;
  * Gli oggetti File vengono istanziati singolarmente a tempo di esecuziones
  */
 
-import java.util.LinkedList; 
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
 import java.util.Queue; 
 import java.io.*;
 
@@ -40,7 +41,11 @@ public class Queue_File {
 	 * Metodo che rimuove il primo file di posizione in coda
 	 * @return
 	 */
-	public String pop() { return q.remove(); }
+	public String pop() { 
+		if(!q.isEmpty())
+			return q.remove();
+		else throw new NoSuchElementException();
+	}
 	
 	/**
 	 * Metodo che ritorna il primo Object in coda, senza rimuoverlo
