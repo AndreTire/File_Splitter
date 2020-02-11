@@ -43,7 +43,7 @@ public class Split {
         long remainingBytes = sourceSize % numSplits; // Numero di byte rimanenti per l'ultimo split
         // System.out.println("Byte per last split= " + remainingBytes);
 
-        int maxReadBufferSize = buffer * 1024; // Buffer di split
+        int maxReadBufferSize = buffer * 1024; // Buffer di split (4KB)
         
         System.out.println("File= " + f.getName() + "\nFile Descriptor= " + raf.getFD() + "\nSize= " + sourceSize + 
         		"\nNumber of Split= " + numSplits + "Bytes per Split= " + bytesPerSplit +

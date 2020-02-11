@@ -1,4 +1,4 @@
-v. 0.1.0 *Progettazione* -> Definizione della struttura procedurale del progetto software da sviluppare
+ v. 0.1.0 *Progettazione* -> Definizione della struttura procedurale del progetto software da sviluppare
 v. 0.1.1 *Progettazione* -> Definizione dei TODO e dei JavaDoc per il package FP_Queue
 v. 1.0.1 *Sviluppo* -> Inizio dello sviluppo dei metodi per la struttura FP_Queue
 v. 1.0.2 *Sviluppo* -> Continuo dello svilyppo dei metodi per la struttura FP_Queue
@@ -11,3 +11,4 @@ v. 1.0.7 *Sviluppo* -> Creato il file di demo per i testing delle procedure di q
 v. 1.0.8 *Sviluppo* -> Create le funzioni per la classe zip per la compressione e decompressione dei file tramite la libreria java.util Deflate
 v. 1.0.9 *Sviluppo* -> Creato e testato il metodo per la codifica di un file con l'algoritmo AES
 v. 1.0.10 *Sviluppo* -> Create le classi per l'interfaccia grafica, creata e definita la classe per la creazione e modellazione del menu dell'interfaccia
+v. 1.0.11 *Sviluppo* -> Create le interfacce menu per l'interazione con il software

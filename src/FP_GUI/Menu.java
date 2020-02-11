@@ -21,35 +21,50 @@ public class Menu extends Component{
 
 	public Menu() {
 		super();
-		//Create the menu bar.
+		// Create the menu bar.
 		menuBar = new JMenuBar();
 
-		//Build the first menu.
-		menu = new JMenu("A Menu");
-		menu.setMnemonic(KeyEvent.VK_A);
-		menu.getAccessibleContext().setAccessibleDescription(
-		        "The only menu in this program that has menu items");
+		// Menu gestione file
+		menu = new JMenu("File");
+		menu.setMnemonic(KeyEvent.VK_F);
+		// menu.getAccessibleContext().setAccessibleDescription("The only menu in this program that has menu items");
 		menuBar.add(menu);
 
-		//a group of JMenuItems
-		menuItem = new JMenuItem("A text-only menu item",
-		                         KeyEvent.VK_T);
-		menuItem.setAccelerator(KeyStroke.getKeyStroke(
-		        KeyEvent.VK_1, ActionEvent.ALT_MASK));
-		menuItem.getAccessibleContext().setAccessibleDescription(
-		        "This doesn't really do anything");
+		// Selezione file
+		menuItem = new JMenuItem("Select File...", KeyEvent.VK_S);
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
+		// menuItem.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
 		menu.add(menuItem);
+		
+		// Rimuovi file
+		menuItem = new JMenuItem("Remove File...", KeyEvent.VK_R);
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
+		// menuItem.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
+		menu.add(menuItem);
+		
+		// Proprietà del sistema
+		menu.addSeparator();
+		menuItem = new JMenuItem("Proprietà", KeyEvent.VK_P);
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, ActionEvent.ALT_MASK));
+		menu.add(menuItem);
+		
+		// Restart del software
+		menu.addSeparator();
+		menuItem = new JMenuItem("Restart", KeyEvent.VK_0);
+		menuItem.setAccelerator(KeyStroke.getKeyStroke("F5"));
+		menu.add(menuItem);
+		
 
-		menuItem = new JMenuItem("Both text and icon",
-		                         new ImageIcon("images/middle.gif"));
+		/* menuItem = new JMenuItem("Both text and icon", new ImageIcon("images/middle.gif"));
 		menuItem.setMnemonic(KeyEvent.VK_B);
 		menu.add(menuItem);
 
 		menuItem = new JMenuItem(new ImageIcon("images/middle.gif"));
 		menuItem.setMnemonic(KeyEvent.VK_D);
-		menu.add(menuItem);
-
-		//a group of radio button menu items
+		menu.add(menuItem); */
+		
+		
+		/*
 		menu.addSeparator();
 		ButtonGroup group = new ButtonGroup();
 		rbMenuItem = new JRadioButtonMenuItem("A radio button menu item");
@@ -85,13 +100,18 @@ public class Menu extends Component{
 
 		menuItem = new JMenuItem("Another item");
 		submenu.add(menuItem);
-		menu.add(submenu);
+		menu.add(submenu); */
 
-		//Build second menu in the menu bar.
-		menu = new JMenu("Another Menu");
+		// Menu Modifica
+		menu = new JMenu("Modifica");
 		menu.setMnemonic(KeyEvent.VK_N);
-		menu.getAccessibleContext().setAccessibleDescription(
-		        "This menu does nothing");
+		menu.getAccessibleContext().setAccessibleDescription("This menu does nothing");
+		menuBar.add(menu);
+		
+		// Menu Modifica
+		menu = new JMenu("Run");
+		menu.setMnemonic(KeyEvent.VK_O);
+		menu.getAccessibleContext().setAccessibleDescription("Run/Stop program");
 		menuBar.add(menu);
 
 	}

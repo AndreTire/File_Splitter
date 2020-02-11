@@ -11,8 +11,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.security.Key;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import javax.crypto.BadPaddingException;
@@ -22,17 +24,23 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
 public class Crypt {
-	
 	/**
-	 * Metodo per generare una chiave per l'algoritmo AES
-	 * @param keyValue
-	 * @param ALGO
+	 * Metodo per generare un hash della chiave in MD5
+	 * @param plaintext
 	 * @return
-	 * @throws Exception
+	 * @throws NoSuchAlgorithmException
 	 */
-	private Key generateKey(byte[] keyValue, String ALGO) throws Exception {
-		Key key = new SecretKeySpec(keyValue, ALGO);
-		return key;
+	public String hashMD5(String plaintext) throws NoSuchAlgorithmException {
+		MessageDigest m = MessageDigest.getInstance("MD5");
+		m.reset();
+		m.update(plaintext.getBytes());
+		byte[] digest = m.digest();
+		BigInteger bigInt = new BigInteger(1,digest);
+		String hashtext = bigInt.toString(16);
+		// Now we need to zero pad it if you actually want the full 32 chars.
+		while(hashtext.length() < 32 )
+		  hashtext = "0"+hashtext;
+		return hashtext;
 	}
 	
 	/**
@@ -73,9 +81,10 @@ public class Crypt {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NoSuchAlgorithmException {
 		Crypt c = new Crypt();
-		String key="";
+		String key = c.hashMD5("test");
+		System.out.println(key);
 		String file="";
 		
 		try {
